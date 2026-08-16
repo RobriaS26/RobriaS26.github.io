@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Python Reporting Automation | Robria Smith</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #111111;
+            --charcoal: #282828;
+            --gray: #666666;
+            --white: #ffffff;
+            --pink: #d94f8a;
+            --pink-dark: #b7346e;
+            --pink-light: #fceaf2;
+            --pink-soft: #fff6fa;
+            --border: #e8e8e8;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        nav {
+            padding: 20px 8%;
+            border-bottom: 1px solid var(--border);
+            background: white;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--pink);
+        }
+
+        nav a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        nav a:hover {
+            color: var(--pink);
+        }
+
+        .hero {
+            padding: 110px 8% 90px;
+            background:
+                radial-gradient(circle at 85% 20%, #fce4ef 0%, transparent 30%),
+                var(--white);
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            padding: 7px 14px;
+            border-radius: 50px;
+            font-size: .8rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1;
+            letter-spacing: -3px;
+            max-width: 900px;
+            margin-bottom: 30px;
+        }
+
+        h1 span {
+            color: var(--pink);
+        }
+
+        .intro {
+            max-width: 780px;
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+
+        .intro strong {
+            color: var(--black);
+        }
+
+        section {
+            padding: 85px 8%;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: var(--pink);
+            font-size: .8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 25px;
+        }
+
+        .text {
+            max-width: 800px;
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+
+        .text p {
+            margin-bottom: 18px;
+        }
+
+        .problem {
+            background: var(--black);
+            color: white;
+        }
+
+        .problem h2 {
+            color: white;
+        }
+
+        .problem .text {
+            color: #cccccc;
+        }
+
+        .problem strong {
+            color: white;
+        }
+
+        .workflow {
+            background: var(--pink-soft);
+        }
+
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-top: 45px;
+            align-items: stretch;
+        }
+
+        .step {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 25px 18px;
+            text-align: center;
+        }
+
+        .step-number {
+            color: var(--pink);
+            font-weight: 800;
+            font-size: .8rem;
+            margin-bottom: 10px;
+        }
+
+        .step h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: var(--gray);
+            font-size: .85rem;
+        }
+
+        .arrow {
+            text-align: center;
+            color: var(--pink);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .detail-card {
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .detail-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .detail-card p {
+            color: var(--gray);
+        }
+
+        .impact {
+            background: var(--black);
+            color: white;
+        }
+
+        .impact h2 {
+            color: white;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .impact-card {
+            background: #1c1c1c;
+            padding: 28px;
+            border-radius: 14px;
+            border-top: 3px solid var(--pink);
+        }
+
+        .impact-card h3 {
+            color: #f4a3c5;
+            margin-bottom: 10px;
+        }
+
+        .impact-card p {
+            color: #cccccc;
+        }
+
+        .tools {
+            background: var(--pink-soft);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .tag {
+            background: white;
+            border: 1px solid #efb2cc;
+            color: var(--pink-dark);
+            padding: 8px 14px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: .85rem;
+        }
+
+        .note {
+            margin-top: 40px;
+            background: white;
+            border-left: 4px solid var(--pink);
+            padding: 22px;
+            color: var(--gray);
+        }
+
+        .back {
+            text-align: center;
+            padding: 75px 8%;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--pink);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+        .button:hover {
+            background: var(--pink-dark);
+        }
+
+        footer {
+            background: var(--black);
+            color: #999;
+            padding: 30px;
+            text-align: center;
+        }
+
+        footer span {
+            color: #f193bb;
+        }
+
+        @media (max-width: 850px) {
+
+            .workflow-grid,
+            .details-grid,
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .arrow {
+                display: block;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+
+            <div class="logo">
+                Robria<span>.</span>
+            </div>
+
+            <a href="index.html">
+                ← Back to Portfolio
+            </a>
+
+        </div>
+    </nav>
+
+
+    <header class="hero">
+
+        <div class="hero-inner">
+
+            <div class="eyebrow">
+                PROJECT 01 • PYTHON • FINANCE AUTOMATION
+            </div>
+
+            <h1>
+                Turning a manual reporting process into
+                <span>"just press send."</span>
+            </h1>
+
+            <p class="intro">
+                A recurring finance process required multiple manual steps
+                to identify converted policies associated with death claims,
+                update a maintenance file, and prepare the results for
+                distribution.
+
+                <strong>
+                    I built a Python workflow to do the repetitive parts instead.
+                </strong>
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <section class="problem">
+
+        <div class="container">
+
+            <div class="section-label">
+                The Problem
+            </div>
+
+            <h2>
+                Too many manual steps for something that happened repeatedly.
+            </h2>
+
+            <div class="text">
+
+                <p>
+                    The reporting process required reviewing converted-policy
+                    information against death-claim activity and maintaining
+                    the results in an Excel file.
+                </p>
+
+                <p>
+                    Each cycle involved receiving source information,
+                    retrieving the data, comparing records, updating the
+                    maintenance file, and preparing the completed information
+                    for email distribution.
+                </p>
+
+                <p>
+                    None of those steps were individually impossible.
+                    <strong>There were just a lot of them.</strong>
+                </p>
+
+                <p>
+                    And when a repeatable process contains a lot of manual
+                    steps, my brain eventually starts asking:
+                    <strong>"Okay... which parts of this can Python do?"</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="workflow">
+
+        <div class="container">
+
+            <div class="section-label">
+                What I Built
+            </div>
+
+            <h2>
+                From incoming information to a prepared email.
+            </h2>
+
+            <div class="text">
+                <p>
+                    I developed a Python-based workflow that connected
+                    several parts of the reporting process so the repetitive
+                    work could happen automatically while keeping the final
+                    distribution step under human control.
+                </p>
+            </div>
+
+
+            <div class="workflow-grid">
+
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Receive</h3>
+                    <p>Source information arrives through email.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Retrieve</h3>
+                    <p>Python accesses and loads the required information.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Process</h3>
+                    <p>Relevant policy and claim information is identified and processed.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <h3>Update</h3>
+                    <p>The maintenance Excel file is updated with the new results.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">05</div>
+                    <h3>Prepare</h3>
+                    <p>The completed output is attached to an email ready for final review and send.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-label">
+                My Approach
+            </div>
+
+            <h2>
+                Automate the repetitive work. Keep judgment with the human.
+            </h2>
+
+            <div class="details-grid">
+
+                <div class="detail-card">
+
+                    <h3>Process first.</h3>
+
+                    <p>
+                        Before automating anything, I needed to understand
+                        the existing reporting logic, required inputs,
+                        expected outputs, and where manual decisions were
+                        actually necessary.
+                    </p>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <h3>Then automate.</h3>
+
+                    <p>
+                        Python handled the repeatable data-processing,
+                        file-maintenance, and email-preparation steps,
+                        reducing the amount of manual intervention required
+                        each reporting cycle.
+                    </p>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <h3>Validate the output.</h3>
+
+                    <p>
+                        Automation is only useful when the result is right.
+                        The workflow preserved a review point before final
+                        distribution so the output could be validated.
+                    </p>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <h3>Make it usable.</h3>
+
+                    <p>
+                        The goal wasn't to build complicated code for the
+                        sake of complicated code. The goal was to make the
+                        process simple enough that the final action was
+                        essentially: review it, then press send.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="impact">
+
+        <div class="container">
+
+            <div class="section-label">
+                Business Impact
+            </div>
+
+            <h2>
+                Less manual handling. More repeatability.
+            </h2>
+
+            <div class="impact-grid">
+
+                <div class="impact-card">
+
+                    <h3>Efficiency</h3>
+
+                    <p>
+                        Reduced repetitive manual steps across a recurring
+                        financial reporting workflow.
+                    </p>
+
+                </div>
+
+
+                <div class="impact-card">
+
+                    <h3>Consistency</h3>
+
+                    <p>
+                        Created a repeatable process for retrieving,
+                        processing, updating, and preparing financial
+                        information.
+                    </p>
+
+                </div>
+
+
+                <div class="impact-card">
+
+                    <h3>Knowledge Sharing</h3>
+
+                    <p>
+                        Demonstrated the automation to team members and
+                        stakeholders, showing how Python could improve
+                        an existing finance process.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="tools">
+
+        <div class="container">
+
+            <div class="section-label">
+                Tools & Skills
+            </div>
+
+            <h2>
+                What went into it.
+            </h2>
+
+            <div class="tags">
+
+                <span class="tag">Python</span>
+                <span class="tag">Excel</span>
+                <span class="tag">Data Processing</span>
+                <span class="tag">Email Automation</span>
+                <span class="tag">Financial Reporting</span>
+                <span class="tag">Process Improvement</span>
+                <span class="tag">Data Validation</span>
+
+            </div>
+
+
+            <div class="note">
+
+                <strong>About the data:</strong>
+
+                This portfolio case study intentionally excludes
+                proprietary code, company data, policy information,
+                customer information, internal reports, and other
+                confidential materials. The workflow shown here is a
+                high-level representation of the process and my contribution.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="back">
+
+        <a href="index.html#projects" class="button">
+            ← Back to My Projects
+        </a>
+
+    </div>
+
+
+    <footer>
+        © 2026 Robria Smith • Built with finance, Python,
+        and a completely reasonable amount of <span>pink.</span>
+    </footer>
+
+</body>
+
+</html>
