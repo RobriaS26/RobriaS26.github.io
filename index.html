@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Robria Smith | Financial Analyst & Business Analytics</title>
+    <title>Robria Smith | Senior Financial Analyst & Business Analytics</title>
 
     <meta name="description"
-          content="Professional portfolio of Robria Smith, a finance and business analytics professional specializing in financial analysis, FP&A, data analytics, and process automation.">
+        content="Portfolio of Robria Smith, a Senior Financial Analyst specializing in FP&A, business partnering, financial analysis, data analytics, and process automation.">
 
     <style>
+
+        /* ===============================
+           GLOBAL
+        =============================== */
+
         * {
             margin: 0;
             padding: 0;
@@ -20,24 +26,58 @@
             scroll-behavior: smooth;
         }
 
+        :root {
+            --black: #111111;
+            --charcoal: #282828;
+            --gray: #666666;
+            --light-gray: #f7f7f7;
+            --white: #ffffff;
+
+            --pink: #d94f8a;
+            --pink-dark: #b7346e;
+            --pink-light: #fceaf2;
+            --pink-soft: #fff6fa;
+
+            --border: #e8e8e8;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
+            color: var(--black);
+            background: var(--white);
             line-height: 1.6;
-            color: #1f2937;
-            background: #f8fafc;
         }
+
+        a {
+            transition: all 0.2s ease;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: auto;
+        }
+
+        section {
+            padding: 100px 8%;
+        }
+
+
+        /* ===============================
+           NAVIGATION
+        =============================== */
 
         nav {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 18px 8%;
+            padding: 20px 8%;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1180px;
             margin: auto;
             display: flex;
             justify-content: space-between;
@@ -45,203 +85,416 @@
         }
 
         .logo {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #111827;
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--pink);
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 30px;
         }
 
         nav a {
             text-decoration: none;
-            color: #4b5563;
+            color: var(--charcoal);
             font-size: 0.95rem;
+            font-weight: 600;
         }
 
         nav a:hover {
-            color: #2563eb;
+            color: var(--pink);
         }
+
+
+        /* ===============================
+           HERO
+        =============================== */
 
         .hero {
-            min-height: 85vh;
+            min-height: 88vh;
             display: flex;
             align-items: center;
-            padding: 80px 8%;
-            background: linear-gradient(135deg, #eff6ff, #ffffff);
+            padding: 90px 8%;
+            background:
+                radial-gradient(circle at 85% 20%, #fce4ef 0%, transparent 28%),
+                radial-gradient(circle at 10% 90%, #fff0f6 0%, transparent 24%),
+                var(--white);
         }
 
-        .hero-content {
-            max-width: 1200px;
+        .hero-inner {
+            width: 100%;
+            max-width: 1180px;
             margin: auto;
+            display: grid;
+            grid-template-columns: 1.35fr 0.65fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--pink-dark);
+            background: var(--pink-light);
+            padding: 7px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-bottom: 22px;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            line-height: 1;
-            color: #111827;
-            margin-bottom: 20px;
-        }
-
-        .hero h2 {
-            font-size: clamp(1.4rem, 3vw, 2.2rem);
-            font-weight: 500;
-            color: #2563eb;
+            font-size: clamp(3.5rem, 7vw, 6.4rem);
+            line-height: 0.95;
+            letter-spacing: -4px;
             margin-bottom: 25px;
         }
 
-        .hero p {
-            max-width: 750px;
-            font-size: 1.15rem;
-            color: #4b5563;
+        .hero h1 span {
+            color: var(--pink);
+        }
+
+        .hero h2 {
+            font-size: clamp(1.7rem, 3vw, 2.7rem);
+            line-height: 1.15;
+            max-width: 800px;
+            margin-bottom: 25px;
+        }
+
+        .hero h2 span {
+            color: var(--pink);
+        }
+
+        .hero-text {
+            max-width: 760px;
+            font-size: 1.12rem;
+            color: var(--gray);
             margin-bottom: 35px;
         }
 
+        .hero-text strong {
+            color: var(--black);
+        }
+
+
+        /* ===============================
+           BUTTONS
+        =============================== */
+
         .buttons {
             display: flex;
-            gap: 15px;
             flex-wrap: wrap;
+            gap: 13px;
         }
 
         .button {
             display: inline-block;
-            padding: 13px 22px;
+            padding: 14px 23px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.2s;
+            font-weight: 700;
         }
 
         .primary {
-            background: #2563eb;
-            color: white;
+            background: var(--pink);
+            color: var(--white);
+            border: 2px solid var(--pink);
         }
 
         .primary:hover {
-            background: #1d4ed8;
+            background: var(--pink-dark);
+            border-color: var(--pink-dark);
+            transform: translateY(-2px);
         }
 
         .secondary {
-            border: 1px solid #2563eb;
-            color: #2563eb;
-            background: white;
+            background: var(--white);
+            color: var(--black);
+            border: 2px solid var(--black);
         }
 
         .secondary:hover {
-            background: #eff6ff;
+            background: var(--black);
+            color: var(--white);
+            transform: translateY(-2px);
         }
 
-        section {
-            padding: 90px 8%;
+
+        /* ===============================
+           HERO SIDE CARD
+        =============================== */
+
+        .hero-card {
+            background: var(--black);
+            color: var(--white);
+            padding: 35px;
+            border-radius: 20px;
+            transform: rotate(2deg);
+            box-shadow: 14px 14px 0 var(--pink-light);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
+        .hero-card:hover {
+            transform: rotate(0deg);
+        }
+
+        .hero-card .mini-title {
+            color: #f8a9ca;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .hero-card h3 {
+            font-size: 1.5rem;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        .hero-card p {
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+
+        /* ===============================
+           SECTION HEADERS
+        =============================== */
+
+        .section-label {
+            color: var(--pink);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            font-size: 0.78rem;
+            margin-bottom: 10px;
         }
 
         .section-title {
-            font-size: 2.3rem;
-            color: #111827;
+            font-size: clamp(2.3rem, 4vw, 3.5rem);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
             margin-bottom: 15px;
         }
 
         .section-subtitle {
-            color: #6b7280;
-            margin-bottom: 40px;
-            max-width: 700px;
+            color: var(--gray);
+            max-width: 760px;
+            margin-bottom: 45px;
+            font-size: 1.05rem;
         }
 
+
+        /* ===============================
+           ABOUT
+        =============================== */
+
         .about {
-            background: white;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .about .section-title {
+            color: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
         }
 
         .about-text {
-            max-width: 850px;
-            font-size: 1.1rem;
-            color: #4b5563;
+            color: #d6d6d6;
+            font-size: 1.08rem;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-text strong {
+            color: var(--white);
+        }
+
+        .about-quote {
+            background: #1c1c1c;
+            border-left: 4px solid var(--pink);
+            padding: 28px;
+            font-size: 1.15rem;
+            border-radius: 8px;
+        }
+
+        .about-quote span {
+            color: #f5a3c5;
+            font-weight: 700;
+        }
+
+
+        /* ===============================
+           SKILLS
+        =============================== */
+
+        .skills {
+            background: var(--pink-soft);
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
 
         .skill-card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #e5e7eb;
+            background: var(--white);
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+        }
+
+        .skill-number {
+            color: var(--pink);
+            font-weight: 800;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
         }
 
         .skill-card h3 {
             margin-bottom: 12px;
-            color: #111827;
+            font-size: 1.18rem;
         }
 
         .skill-card p {
-            color: #6b7280;
+            color: var(--gray);
+            font-size: 0.93rem;
         }
 
-        .experience-item {
-            background: white;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-left: 4px solid #2563eb;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        .skill-card:hover {
+            transform: translateY(-4px);
+            border-color: #efb2cc;
         }
 
-        .experience-item h3 {
-            color: #111827;
-            margin-bottom: 5px;
+
+        /* ===============================
+           EXPERIENCE
+        =============================== */
+
+        .experience {
+            background: var(--white);
         }
 
-        .experience-item .role {
-            color: #2563eb;
-            font-weight: bold;
-            margin-bottom: 15px;
+        .experience-block {
+            border-top: 1px solid var(--border);
+            padding: 42px 0;
         }
 
-        .experience-item ul {
-            margin-left: 20px;
-            color: #4b5563;
+        .experience-top {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 50px;
         }
+
+        .company {
+            font-size: 1.65rem;
+            font-weight: 800;
+            margin-bottom: 7px;
+        }
+
+        .dates {
+            color: var(--gray);
+        }
+
+        .role-title {
+            color: var(--pink-dark);
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 17px;
+        }
+
+        .experience-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .rotation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .rotation-card {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .rotation-card h4 {
+            margin-bottom: 10px;
+        }
+
+        .rotation-card p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+
+        /* ===============================
+           PROJECTS
+        =============================== */
 
         .projects {
-            background: #f1f5f9;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .projects .section-title {
+            color: var(--white);
+        }
+
+        .projects .section-subtitle {
+            color: #bfbfbf;
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
         }
 
         .project-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #e5e7eb;
-            transition: transform 0.2s, box-shadow 0.2s;
+            background: #191919;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #2f2f2f;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-color: var(--pink);
+        }
+
+        .project-number {
+            color: #f398be;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
 
         .project-card h3 {
-            margin-bottom: 12px;
-            color: #111827;
+            font-size: 1.35rem;
+            margin-bottom: 13px;
         }
 
         .project-card p {
-            color: #6b7280;
+            color: #bfbfbf;
             margin-bottom: 18px;
         }
 
@@ -252,79 +505,160 @@
         }
 
         .tag {
-            background: #eff6ff;
-            color: #1d4ed8;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: bold;
+            padding: 6px 10px;
+            background: #2b2b2b;
+            color: #f5a3c5;
+            border-radius: 50px;
         }
 
+
+        /* ===============================
+           EDUCATION
+        =============================== */
+
         .education {
-            background: white;
+            background: var(--pink-soft);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
         .education-card {
-            padding: 25px;
-            margin-bottom: 20px;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
         }
 
         .education-card h3 {
-            color: #111827;
+            font-size: 1.35rem;
+            margin-bottom: 6px;
+        }
+
+        .school {
+            color: var(--pink-dark);
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
         .education-card p {
-            color: #6b7280;
+            color: var(--gray);
         }
+
+
+        /* ===============================
+           CONTACT
+        =============================== */
 
         .contact {
+            background: var(--white);
             text-align: center;
-            background: #111827;
-            color: white;
         }
 
-        .contact .section-title {
-            color: white;
+        .contact .section-subtitle {
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .contact p {
-            color: #d1d5db;
-            max-width: 650px;
-            margin: 0 auto 30px;
+        .contact .buttons {
+            justify-content: center;
         }
+
+
+        /* ===============================
+           FOOTER
+        =============================== */
 
         footer {
+            background: var(--black);
+            color: #999999;
             text-align: center;
-            padding: 25px;
-            background: #030712;
-            color: #9ca3af;
+            padding: 30px;
             font-size: 0.9rem;
         }
 
-        @media (max-width: 700px) {
+        footer span {
+            color: #f193bb;
+        }
+
+
+        /* ===============================
+           MOBILE
+        =============================== */
+
+        @media (max-width: 900px) {
+
+            .hero-inner,
+            .about-grid,
+            .experience-top {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .rotation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                max-width: 500px;
+            }
+
+        }
+
+        @media (max-width: 650px) {
+
             nav ul {
                 display: none;
             }
 
-            .hero {
-                min-height: 75vh;
+            .hero h1 {
+                letter-spacing: -2px;
             }
 
             section {
-                padding: 65px 6%;
+                padding: 75px 6%;
             }
+
+            .hero {
+                padding: 75px 6%;
+            }
+
+            .skills-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- NAVIGATION -->
+
+    <!-- ===============================
+         NAVIGATION
+    =============================== -->
+
     <nav>
         <div class="nav-container">
-            <div class="logo">Robria Smith</div>
+
+            <div class="logo">
+                Robria<span>.</span>
+            </div>
 
             <ul>
                 <li><a href="#about">About</a></li>
@@ -334,221 +668,456 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
         </div>
     </nav>
 
 
-    <!-- HERO -->
+
+    <!-- ===============================
+         HERO
+    =============================== -->
+
     <header class="hero">
-        <div class="hero-content">
 
-            <h1>Robria Smith</h1>
+        <div class="hero-inner">
 
-            <h2>
-                Financial Analyst | FP&A | Business Analytics
-            </h2>
+            <div>
 
-            <p>
-                Finance professional specializing in financial analysis,
-                reporting, data analytics, process automation, and
-                data-driven business decision-making.
-            </p>
+                <span class="eyebrow">
+                    Senior Financial Analyst • FP&A • Business Analytics
+                </span>
 
-            <div class="buttons">
+                <h1>
+                    Robria <span>Smith.</span>
+                </h1>
 
-    <a href="#projects" class="button primary">
-        View My Projects
-    </a>
+                <h2>
+                    Financial Analysis meets
+                    <span>Data & Automation.</span>
+                </h2>
 
-    <a href="./resume.pdf"
-   class="button secondary"
-   target="_blank">
-    View Résumé
-</a>
+                <p class="hero-text">
 
-    <a href="#contact" class="button secondary">
-        Connect With Me
-    </a>
+                    I turn financial data into clear stories,
+                    useful insights, and more efficient processes.
 
-</div>
+                    My background spans FP&A, financial reporting,
+                    business intelligence, internal audit, and automation.
+
+                    <strong>
+                        Basically: I like numbers, business questions,
+                        and finding a better way to do things.
+                    </strong>
+
+                </p>
+
+
+                <div class="buttons">
+
+                    <a href="#projects" class="button primary">
+                        See What I've Built
+                    </a>
+
+                    <a href="./resume.pdf"
+                       target="_blank"
+                       class="button secondary">
+                        View Résumé
+                    </a>
+
+                    <a href="#contact" class="button secondary">
+                        Let's Connect
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="mini-title">
+                    My sweet spot
+                </div>
+
+                <h3>
+                    Finance problems that can be solved with
+                    better analysis, cleaner data, or a little automation.
+                </h3>
+
+                <p>
+                    Bonus points if the current process involves
+                    twelve spreadsheets and someone saying,
+                    "We've always done it this way."
+                </p>
+
+            </div>
 
         </div>
+
     </header>
 
 
-    <!-- ABOUT -->
+
+    <!-- ===============================
+         ABOUT
+    =============================== -->
+
     <section id="about" class="about">
+
         <div class="container">
 
-            <h2 class="section-title">About Me</h2>
+            <div class="section-label">
+                About Me
+            </div>
 
-            <p class="section-subtitle">
-                Finance, analytics, and technology working together.
-            </p>
+            <h2 class="section-title">
+                Finance brain. Analytics mindset.
+            </h2>
 
-            <p class="about-text">
-                I am a finance and business analytics professional with
-                experience across financial analysis, FP&A, business
-                intelligence, internal audit, reporting, and data
-                automation. My work focuses on using financial and
-                operational data to improve reporting processes,
-                identify trends, support stakeholders, and drive
-                better business decisions.
-            </p>
+
+            <div class="about-grid">
+
+                <div class="about-text">
+
+                    <p>
+                        I'm a financial analyst with experience across
+                        healthcare and insurance, supporting FP&A,
+                        budgeting, forecasting, financial reporting,
+                        internal audit, and business intelligence.
+                    </p>
+
+                    <p>
+                        My work has ranged from managing multi-million-dollar
+                        cost centers and analyzing financial variances to
+                        improving reporting workflows with Power Query,
+                        SQL, and Python.
+                    </p>
+
+                    <p>
+                        What I enjoy most is sitting at the intersection
+                        of <strong>finance, data, and business decisions</strong>:
+                        understanding what the numbers are saying,
+                        explaining why they changed, and figuring out
+                        what we should do next.
+                    </p>
+
+                </div>
+
+
+                <div class="about-quote">
+
+                    <span>My general philosophy:</span>
+
+                    <br><br>
+
+                    If I'm doing the exact same manual task every month,
+                    eventually I'm going to start wondering whether
+                    Python, Power Query, SQL, or Excel can do some of it for me.
+
+                    <br><br>
+
+                    It's not laziness.
+
+                    It's process improvement. 🙂
+
+                </div>
+
+            </div>
 
         </div>
+
     </section>
 
 
-    <!-- SKILLS -->
-    <section id="skills">
+
+    <!-- ===============================
+         SKILLS
+    =============================== -->
+
+    <section id="skills" class="skills">
+
         <div class="container">
 
-            <h2 class="section-title">Core Skills</h2>
+            <div class="section-label">
+                What I Work With
+            </div>
+
+            <h2 class="section-title">
+                Finance first. Technology when it helps.
+            </h2>
 
             <p class="section-subtitle">
-                A combination of finance, analytical, and technical
-                capabilities.
+                I don't use tools just to say I know them.
+                I like using them to make financial reporting,
+                analysis, and decision-making easier.
             </p>
+
 
             <div class="skills-grid">
 
-                <div class="skill-card">
-                    <h3>Financial Analysis</h3>
-                    <p>
-                        FP&A, budget vs. actual analysis,
-                        financial reporting, variance analysis,
-                        cost center management, and expense analysis.
-                    </p>
-                </div>
 
                 <div class="skill-card">
+
+                    <div class="skill-number">01</div>
+
+                    <h3>FP&A</h3>
+
+                    <p>
+                        Budgeting, forecasting, variance analysis,
+                        expense management, financial reporting,
+                        cost-center management, and business partnering.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-number">02</div>
+
                     <h3>Excel & Power Query</h3>
+
                     <p>
-                        Advanced Excel formulas, PivotTables,
-                        data transformation, reconciliation,
-                        reporting automation, and Power Query.
+                        PivotTables, XLOOKUP/VLOOKUP, data models,
+                        reconciliation workflows, data transformation,
+                        and recurring-report automation.
                     </p>
+
                 </div>
 
-                <div class="skill-card">
-                    <h3>Data Analytics</h3>
-                    <p>
-                        SQL, Python, data transformation,
-                        reporting automation, business intelligence,
-                        and data-driven analysis.
-                    </p>
-                </div>
 
                 <div class="skill-card">
+
+                    <div class="skill-number">03</div>
+
+                    <h3>SQL & Python</h3>
+
+                    <p>
+                        Data retrieval, reporting automation,
+                        workflow improvement, validation,
+                        and translating legacy reporting processes.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-number">04</div>
+
                     <h3>Business Intelligence</h3>
+
                     <p>
-                        Tableau, Teradata, Snowflake,
-                        BI reporting, data analysis,
-                        and financial reporting processes.
+                        Tableau, Snowflake, Teradata,
+                        Lawson BI, PeopleSoft, data pipelines,
+                        reporting logic, and financial data analysis.
                     </p>
+
                 </div>
+
 
             </div>
 
         </div>
+
     </section>
 
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
+
+    <!-- ===============================
+         EXPERIENCE
+    =============================== -->
+
+    <section id="experience" class="experience">
+
         <div class="container">
 
-            <h2 class="section-title">Professional Experience</h2>
+            <div class="section-label">
+                Experience
+            </div>
+
+            <h2 class="section-title">
+                Where finance met the real world.
+            </h2>
 
             <p class="section-subtitle">
-                Experience across finance, analytics, reporting,
-                audit, and business intelligence.
+                I've worked across FP&A, accounting,
+                business intelligence, internal audit,
+                healthcare, and insurance — which means
+                I've seen spreadsheets in many different habitats.
             </p>
 
 
-            <div class="experience-item">
 
-                <h3>Mutual of Omaha</h3>
+            <!-- MUTUAL OF OMAHA -->
 
-                <div class="role">
-                    Finance & Accounting Development Program
+            <div class="experience-block">
+
+                <div class="experience-top">
+
+                    <div>
+
+                        <div class="company">
+                            Mutual of Omaha
+                        </div>
+
+                        <div class="dates">
+                            June 2023 – Present
+                        </div>
+
+                    </div>
+
+
+                    <div class="experience-content">
+
+                        <div class="role-title">
+                            Senior Financial Analyst
+                        </div>
+
+                        <p>
+                            Rotational experience across Product Accounting,
+                            Business Intelligence, and Internal Audit,
+                            supporting financial reporting, claims and reserve
+                            analysis, process automation, reconciliation,
+                            and financial controls.
+                        </p>
+
+
+                        <div class="rotation-grid">
+
+
+                            <div class="rotation-card">
+
+                                <h4>Product Accounting</h4>
+
+                                <p>
+                                    Supported month-end close,
+                                    journal entries, policy-data reconciliation,
+                                    variance analysis, third-party administrator
+                                    reporting, and Power Query automation.
+                                </p>
+
+                            </div>
+
+
+                            <div class="rotation-card">
+
+                                <h4>Business Intelligence</h4>
+
+                                <p>
+                                    Supported claims and reserve reporting,
+                                    converted legacy SAS reporting logic
+                                    into Python workflows, validated financial
+                                    outputs, and improved recurring data processes.
+                                </p>
+
+                            </div>
+
+
+                            <div class="rotation-card">
+
+                                <h4>Internal Audit</h4>
+
+                                <p>
+                                    Evaluated financial processes and controls,
+                                    supported premium-tax and bond audits,
+                                    reconciled financial data, and analyzed
+                                    large travel-and-expense datasets.
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
                 </div>
-
-                <ul>
-                    <li>
-                        Rotated across finance, business intelligence,
-                        accounting, and internal audit functions.
-                    </li>
-
-                    <li>
-                        Supported financial reporting, data analysis,
-                        reporting automation, and stakeholder requests.
-                    </li>
-
-                    <li>
-                        Worked with SQL, Python, Excel, and enterprise
-                        data sources including Teradata and Snowflake.
-                    </li>
-
-                    <li>
-                        Participated in internal audit engagements
-                        including premium tax, travel and expense,
-                        bonds, and other financial audits.
-                    </li>
-                </ul>
 
             </div>
 
 
-            <div class="experience-item">
 
-                <h3>Baystate Health</h3>
+            <!-- BAYSTATE -->
 
-                <div class="role">
-                    Informatics & Technology Cost Center Financial Liaison
+            <div class="experience-block">
+
+                <div class="experience-top">
+
+                    <div>
+
+                        <div class="company">
+                            Baystate Health
+                        </div>
+
+                        <div class="dates">
+                            November 2022 – June 2023
+                        </div>
+
+                    </div>
+
+
+                    <div class="experience-content">
+
+                        <div class="role-title">
+                            IT Finance Liaison / Financial Analyst (FP&A)
+                        </div>
+
+                        <p>
+                            Managed FP&A support for four IT cost centers
+                            with budgets ranging from approximately
+                            $5M to $10M.
+                        </p>
+
+                        <p>
+                            Performed budget-to-actual analysis,
+                            developed monthly spend forecasts,
+                            analyzed cost drivers and financial risks,
+                            reviewed accruals and vendor expenses,
+                            validated invoices against contracts,
+                            and partnered directly with cost-center owners
+                            and IT leadership.
+                        </p>
+
+                        <p>
+                            In other words: a lot of answering
+                            <strong>"Why did this number move?"</strong>
+                            before someone else had to ask.
+                        </p>
+
+                    </div>
+
                 </div>
 
-                <ul>
-
-                    <li>
-                        Managed budget vs. actual analysis across
-                        four IT cost centers.
-                    </li>
-
-                    <li>
-                        Supported cost centers ranging from approximately
-                        $5M to $10M.
-                    </li>
-
-                    <li>
-                        Validated invoices against contracts and
-                        financial records.
-                    </li>
-
-                    <li>
-                        Prepared financial summaries and monitored
-                        expected expenditures for stakeholders.
-                    </li>
-
-                </ul>
-
             </div>
+
 
         </div>
+
     </section>
 
 
-    <!-- PROJECTS -->
+
+    <!-- ===============================
+         PROJECTS
+    =============================== -->
+
     <section id="projects" class="projects">
 
         <div class="container">
 
-            <h2 class="section-title">Featured Projects</h2>
+            <div class="section-label">
+                Featured Work
+            </div>
+
+            <h2 class="section-title">
+                Things I've analyzed, automated, or made less painful.
+            </h2>
 
             <p class="section-subtitle">
-                Examples of how I use finance, analytics, and technology
-                to solve business problems.
+                A few examples of how I've used finance,
+                analytics, and technology to solve real business problems.
             </p>
 
 
@@ -557,22 +1126,25 @@
 
                 <div class="project-card">
 
+                    <div class="project-number">
+                        PROJECT 01
+                    </div>
+
                     <h3>
                         Python Reporting Automation
                     </h3>
 
                     <p>
-                        Developed a Python-based reporting workflow
-                        designed to retrieve documents from email,
-                        process information, update an Excel maintenance
-                        file, and prepare the completed report for
-                        distribution.
+                        Built a Python-based workflow to process
+                        recurring financial information, update reporting
+                        files, and streamline report preparation and delivery.
                     </p>
 
                     <div class="tags">
                         <span class="tag">Python</span>
                         <span class="tag">Excel</span>
                         <span class="tag">Automation</span>
+                        <span class="tag">Finance</span>
                     </div>
 
                 </div>
@@ -580,20 +1152,23 @@
 
                 <div class="project-card">
 
+                    <div class="project-number">
+                        PROJECT 02
+                    </div>
+
                     <h3>
                         Maxon Reconciliation Automation
                     </h3>
 
                     <p>
-                        Streamlined a recurring reconciliation process
-                        involving premiums, commissions, certificate
-                        counts, and face amounts using Excel and
-                        Power Query.
+                        Improved a recurring reconciliation process
+                        involving premiums, commissions, certificate counts,
+                        and face amounts using Excel and Power Query.
                     </p>
 
                     <div class="tags">
-                        <span class="tag">Excel</span>
                         <span class="tag">Power Query</span>
+                        <span class="tag">Excel</span>
                         <span class="tag">Reconciliation</span>
                     </div>
 
@@ -602,41 +1177,48 @@
 
                 <div class="project-card">
 
+                    <div class="project-number">
+                        PROJECT 03
+                    </div>
+
                     <h3>
-                        Insurance Conversion Reporting
+                        Legacy Reporting → Python
                     </h3>
 
                     <p>
-                        Developed SQL-based reporting processes to
-                        retrieve converted insurance policies and
-                        streamline recurring reporting activities.
+                        Translated legacy SAS-based reporting logic
+                        into Python workflows and validated outputs
+                        during a reporting-system transition.
                     </p>
 
                     <div class="tags">
-                        <span class="tag">SQL</span>
-                        <span class="tag">Excel</span>
-                        <span class="tag">Reporting</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">SAS</span>
+                        <span class="tag">Data Validation</span>
                     </div>
 
                 </div>
 
 
                 <div class="project-card">
+
+                    <div class="project-number">
+                        PROJECT 04
+                    </div>
 
                     <h3>
                         Travel & Expense Audit Analytics
                     </h3>
 
                     <p>
-                        Analyzed employee expense data to identify
-                        data quality issues, policy exceptions, and
-                        potential business risks while collaborating
-                        with stakeholders on action plans.
+                        Analyzed large expense datasets to identify
+                        trends, policy exceptions, data-quality issues,
+                        and potential control gaps.
                     </p>
 
                     <div class="tags">
-                        <span class="tag">Data Analysis</span>
                         <span class="tag">Audit</span>
+                        <span class="tag">Data Analysis</span>
                         <span class="tag">Excel</span>
                     </div>
 
@@ -645,20 +1227,24 @@
 
                 <div class="project-card">
 
+                    <div class="project-number">
+                        PROJECT 05
+                    </div>
+
                     <h3>
-                        LIMRA Survey Dashboard
+                        Cost Center Forecasting
                     </h3>
 
                     <p>
-                        Worked with business intelligence and survey
-                        reporting data to support analysis and
-                        visualization of industry information.
+                        Managed financial analysis across four IT cost centers,
+                        using historical trends, contracts, and current-year
+                        activity to forecast spend and flag budget risks.
                     </p>
 
                     <div class="tags">
-                        <span class="tag">Tableau</span>
-                        <span class="tag">BI</span>
-                        <span class="tag">Analytics</span>
+                        <span class="tag">FP&A</span>
+                        <span class="tag">Forecasting</span>
+                        <span class="tag">Business Partnering</span>
                     </div>
 
                 </div>
@@ -666,25 +1252,29 @@
 
                 <div class="project-card">
 
+                    <div class="project-number">
+                        PROJECT 06
+                    </div>
+
                     <h3>
-                        Budget vs. Actual Analysis
+                        Financial Variance Analysis
                     </h3>
 
                     <p>
-                        Analyzed financial performance across IT cost
-                        centers, monitored spending trends, and
-                        prepared stakeholder summaries highlighting
-                        areas requiring attention.
+                        Investigated changes across premiums,
+                        commissions, policy counts, and financial reporting
+                        outputs to identify discrepancies and support resolution.
                     </p>
 
                     <div class="tags">
-                        <span class="tag">FP&A</span>
-                        <span class="tag">Budgeting</span>
-                        <span class="tag">Financial Analysis</span>
+                        <span class="tag">Variance Analysis</span>
+                        <span class="tag">Financial Reporting</span>
+                        <span class="tag">Controls</span>
                     </div>
 
                 </div>
 
+
             </div>
 
         </div>
@@ -692,36 +1282,65 @@
     </section>
 
 
-    <!-- EDUCATION -->
+
+    <!-- ===============================
+         EDUCATION
+    =============================== -->
+
     <section id="education" class="education">
 
         <div class="container">
 
-            <h2 class="section-title">Education</h2>
-
-
-            <div class="education-card">
-
-                <h3>
-                    Master of Business Analytics
-                </h3>
-
-                <p>
-                    Bellevue University
-                </p>
-
+            <div class="section-label">
+                Education
             </div>
 
+            <h2 class="section-title">
+                The formal learning part.
+            </h2>
 
-            <div class="education-card">
+            <p class="section-subtitle">
+                Because apparently "I Googled it until it worked"
+                doesn't count as a graduate degree.
+            </p>
 
-                <h3>
-                    Bachelor of Science in Finance
-                </h3>
 
-                <p>
-                    Graduated Spring 2022
-                </p>
+            <div class="education-grid">
+
+
+                <div class="education-card">
+
+                    <h3>
+                        Master of Science in Business Analytics
+                    </h3>
+
+                    <div class="school">
+                        Bellevue University
+                    </div>
+
+                    <p>
+                        Expected May 2027
+                    </p>
+
+                </div>
+
+
+                <div class="education-card">
+
+                    <h3>
+                        Bachelor of Science in Finance
+                    </h3>
+
+                    <div class="school">
+                        Southern University and A&M College
+                    </div>
+
+                    <p>
+                        May 2022
+                    </p>
+
+                </div>
+
 
             </div>
 
@@ -730,34 +1349,47 @@
     </section>
 
 
-    <!-- CONTACT -->
+
+    <!-- ===============================
+         CONTACT
+    =============================== -->
+
     <section id="contact" class="contact">
 
         <div class="container">
 
-            <h2 class="section-title">
+            <div class="section-label">
                 Let's Connect
+            </div>
+
+            <h2 class="section-title">
+                Numbers are great. People matter too.
             </h2>
 
-            <p>
-                I am interested in opportunities where finance,
-                analytics, and technology come together to solve
-                business problems.
+            <p class="section-subtitle">
+                I'm interested in opportunities where I can combine
+                FP&A, financial analysis, analytics, business partnering,
+                and process improvement to help teams make better decisions.
             </p>
+
 
             <div class="buttons">
 
-                <a
-                    href="https://github.com/RobriaS26"
-                    class="button secondary"
-                    target="_blank">
+                <a href="./resume.pdf"
+                   target="_blank"
+                   class="button primary">
+                    View Résumé
+                </a>
+
+                <a href="https://github.com/RobriaS26"
+                   target="_blank"
+                   class="button secondary">
                     GitHub
                 </a>
 
                 <!-- Replace # with your LinkedIn URL -->
-                <a
-                    href="#"
-                    class="button secondary">
+                <a href="#"
+                   class="button secondary">
                     LinkedIn
                 </a>
 
@@ -768,14 +1400,21 @@
     </section>
 
 
-    <!-- FOOTER -->
+
+    <!-- ===============================
+         FOOTER
+    =============================== -->
+
     <footer>
 
-        <p>
-            © 2026 Robria Smith. All rights reserved.
-        </p>
+        © 2026 Robria Smith.
+
+        Built with finance, analytics,
+        and a completely reasonable amount of <span>pink.</span>
 
     </footer>
 
+
 </body>
+
 </html>
