@@ -304,7 +304,21 @@
         .about .section-title {
             color: var(--white);
         }
+.about-heading-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+}
 
+.profile-photo {
+    width: 115px;
+    height: 115px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 3px solid var(--pink);
+    flex-shrink: 0;
+}
         .about-grid {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
@@ -809,9 +823,17 @@
 
         <div class="container">
 
-            <div class="section-label">
-                About Me
-            </div>
+<div class="about-heading-row">
+
+    <img src="profile-photo.jpg"
+         alt="Professional portrait of Robria"
+         class="profile-photo">
+
+    <div class="section-label">
+        About Me
+    </div>
+
+</div>
 
             <h2 class="section-title">
                 Finance brain. Analytics mindset.
