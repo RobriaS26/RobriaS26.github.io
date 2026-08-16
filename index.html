@@ -475,11 +475,37 @@
             border-radius: 16px;
             border: 1px solid #2f2f2f;
         }
-.project-link {
-    text-decoration: none;
-    color: inherit;
+.project-link,
+.project-link:visited,
+.project-link:hover,
+.project-link:active {
+    text-decoration: none !important;
+    color: inherit !important;
     display: block;
     cursor: pointer;
+}
+
+.project-link h3,
+.project-link p,
+.project-link .project-number,
+.project-link .tag {
+    text-decoration: none !important;
+}
+
+.project-link h3 {
+    color: white !important;
+}
+
+.project-link p {
+    color: #bfbfbf !important;
+}
+
+.project-link .project-number {
+    color: #f398be !important;
+}
+
+.project-link .tag {
+    color: #f5a3c5 !important;
 }
         
 
